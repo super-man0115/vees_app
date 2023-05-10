@@ -9,6 +9,7 @@
       <p>{{ selectedPokemon.description }}</p>
       <p>{{ result }}</p>
       <p>{{ comment }}</p>
+      <button @click="twitterShare">ツイッターでシェアする</button>
     </div>
   </div>
 </template>
@@ -22,5 +23,11 @@ export default {
       return this.$store.state.selectedPokemon;
     },
   },
+  methods: {
+    twitterShare(){
+      const url = "https://twitter.com/intent/tweet?text=" +  this.result + "&url=https://veesapp-83915.web.app/" + "&hashtags=ブイズ診断";
+      location.href = url;
+    }
+  }
 };
 </script>
