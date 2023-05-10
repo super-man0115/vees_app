@@ -2,12 +2,11 @@
   <v-container fluid fill-height class="d-flex align-center">
     <v-row justify="center">
       <v-col cols="12" sm="8" md="4">
-        <v-container
-    >
+        <v-container>
           <v-sheet class="pa-2 ma-2">
             ブイズ診断
           </v-sheet>
-    </v-container>
+        </v-container>
         <v-card>
           <v-card-text>
             <v-sheet width="300" class="mx-auto">
