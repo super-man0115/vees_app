@@ -1,6 +1,5 @@
 <template>
   <div>
-    <input type="text" placeholder="君の名前を教えてね" v-model="name">
     <div v-for="pokemon in pokemons" :key="pokemon.name">
       <img :src="pokemon.sprite" alt="pokemon sprite" v-on:click="selectPokemon(pokemon)" />
     </div>
@@ -23,9 +22,9 @@ import axios from "axios";
 
 export default {
   name: "PokemonData",
+  props: ["name"],
   data() {
     return {
-      name: "",
       pokemons: [],
       selectedPokemon: null,
       pokemonMessages: {
@@ -83,25 +82,10 @@ export default {
     },
     selectPokemon(pokemon) {
       this.selectedPokemon = pokemon;
-    },
-  },
-  computed: {
-    userName() {
-      return this.name;
-    },
-    selectedPokemonMessage() {
-      if (this.selectedPokemon) {
-        const message = this.pokemonMessages[this.selectedPokemon.name];
-        return `${this.selectedPokemon.name}を選んだ${this.userName}さんは${message}です`;
-      }
-      return "";
-    },
-    selectedPokemonResultComment() {
-      if (this.selectedPokemon) {
-        const comment = this.resultComment[this.selectedPokemon.name];
-        return comment;
-      }
-      return "";
+      const result = `${this.selectedPokemon.name}を選んだ${this.name}さんは${this.pokemonMessages[this.selectedPokemon.name]}です`;
+      const comment = this.resultComment[this.selectedPokemon.name];
+      this.$store.dispatch('selectPokemon', pokemon);
+      this.$router.push({ name: "ResultDisplay", params: { name: this.name, result: result, comment: comment } });
     },
   }
 };
