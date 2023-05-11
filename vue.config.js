@@ -1,17 +1,18 @@
 const { defineConfig } = require('@vue/cli-service')
+
 module.exports = defineConfig({
   transpileDependencies: true,
-  
+
   chainWebpack: config => {
-    const rule = config.module.rule('fonts');
+    const rule = config.module.rule('images');
     rule.uses.clear();
     rule
       .use('url-loader')
-        .loader('url-loader')
-        .options({
-          limit: 10000,
-          name: 'fonts/[name].[ext]',
-        });
+      .loader('url-loader')
+      .tap(options => {
+        options.fallback.options.name = 'img/[name].[ext]';
+        return options;
+      });
   },
 
   devServer: {
@@ -19,5 +20,4 @@ module.exports = defineConfig({
       'Access-Control-Allow-Origin': '*',
     },
   },
-
-})
+});
