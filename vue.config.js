@@ -3,16 +3,21 @@ const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
 
-  chainWebpack: config => {
-    const rule = config.module.rule('images');
-    rule.uses.clear();
-    rule
-      .use('url-loader')
-      .loader('url-loader')
-      .tap(options => {
-        options.fallback.options.name = 'img/[name].[ext]';
-        return options;
-      });
+  configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: /\.(png|jpe?g|gif|webp)(\?.*)?$/,
+          loader: 'url-loader',
+          options: {
+            limit: 4096,
+            fallback: {
+              filename: 'img/[name].[ext]',
+            },
+          },
+        },
+      ],
+    },
   },
 
   devServer: {
@@ -20,4 +25,4 @@ module.exports = defineConfig({
       'Access-Control-Allow-Origin': '*',
     },
   },
-});
+})
