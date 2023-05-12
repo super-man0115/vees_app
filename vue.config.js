@@ -2,6 +2,7 @@ const { defineConfig } = require('@vue/cli-service')
 
 module.exports = defineConfig({
   transpileDependencies: true,
+  publicPath: './',
 
   configureWebpack: {
     module: {
@@ -12,7 +13,10 @@ module.exports = defineConfig({
           options: {
             limit: 4096,
             fallback: {
-              filename: 'img/[name].[ext]',
+              loader: 'file-loader',
+              options: {
+                name: 'img/[name].[ext]',
+              },
             },
           },
         },

@@ -15,7 +15,7 @@ const routes = [
     props: true
   },
   {
-    path: "/result/:name/:result",
+    path: "/result/:name/:result/:comment",
     name: "ResultDisplay",
     component: ResultDisplay,
     props: true
