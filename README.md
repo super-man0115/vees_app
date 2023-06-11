@@ -1,24 +1,11 @@
-# veesapp
+# ブイズ診断
 
-## Project setup
-```
-npm install
-```
+![logo](https://github.com/super-man0115/vees_app/assets/66407238/46041e4b-92a6-469f-ae12-eaed5e8339c5)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+#### イーブイの進化系からあなたの性格を診断してくれるアプリです。
 
-### Compiles and minifies for production
-```
-npm run build
-```
+# 使用技術
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
