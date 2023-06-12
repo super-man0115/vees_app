@@ -5,6 +5,14 @@
 #### イーブイの進化系からあなたの性格を診断してくれるアプリです。
 
 # 使用技術
+- Vue.js 3.2.13
+- vue-gtag-next(Google Analyticsを使うため)
+- vue-router(ルーティング制御)
+- vuetify(簡単なデザイン)
+- vuex(状態管理)
+
+# 使用画面
+
 
 
 
